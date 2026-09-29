@@ -1,0 +1,6 @@
+name: hermes-hashline-editor
+version: 0.1.0
+description: "Edição de arquivos ancorada por Hash criptográfico (Hashline) para eliminar erros de string-matching e indentação."
+author: "Hermes Zeta / Mestre Wésio"
+license: "MIT"
+tags: ["editor", "hashline", "llm-tools", "patch"]
