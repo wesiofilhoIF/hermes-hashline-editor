@@ -39,3 +39,41 @@ Se a linha `2` no disco não tiver mais o hash `f7` (alguém editou no meio temp
 ### Tools Injetadas no Hermes
 - `read_hashline(path, start_line, end_line)`: Retorna o texto formatado `NUM:HASH| CONTEUDO`.
 - `patch_hashline(path, operations)`: Aplica operações determinísticas de `replace`, `insert_after`, `insert_before` e `delete` baseadas no ID da linha e seu Hash.
+
+---
+
+## 🤖 Para Agentes de IA: Como Instalar (Prompt)
+Se você é um agente LLM ajudando um usuário a instalar este plugin, copie e siga o fluxo abaixo.
+
+```text
+================================================================
+INSTALAR PLUGIN HERMES HASHLINE EDITOR
+================================================================
+Contexto: O usuário quer instalar a funcionalidade de Hashline no Hermes.
+
+PASSO 0 — DESCOBERTA
+0.1. Identifique os perfis Hermes do usuário.
+     Geralmente ficam em: `~/.hermes/profiles/`
+     Pergunte em qual perfil (ex: zeta, ash, default) o plugin deve ser ativado.
+
+PASSO 1 — CLONAR O REPOSITÓRIO
+1.1. Baixe o código fonte para uma pasta de trabalho local:
+     cd ~/workspace (ou diretório preferido do usuário)
+     git clone https://github.com/wesiofilhoIF/hermes-hashline-editor.git
+
+PASSO 2 — CRIAR O LINK NO PERFIL
+2.1. Crie a pasta de plugins no perfil alvo (ex: zeta) se não existir:
+     mkdir -p ~/.hermes/profiles/<PROFILE>/plugins
+2.2. Faça o symlink:
+     ln -snf ~/workspace/hermes-hashline-editor ~/.hermes/profiles/<PROFILE>/plugins/hermes-hashline-editor
+
+PASSO 3 — ATIVAR NO CONFIG.YAML
+3.1. Edite o arquivo `~/.hermes/profiles/<PROFILE>/config.yaml`.
+3.2. Localize a seção `plugins:` -> `enabled:`.
+3.3. Adicione `- hermes-hashline-editor` à lista.
+
+PASSO 4 — REINICIAR E VALIDAR
+4.1. Reinicie o gateway do Hermes:
+     systemctl --user restart hermes-gateway-<PROFILE>.service
+4.2. Confirme que as tools `read_hashline` e `patch_hashline` estão disponíveis.
+```
